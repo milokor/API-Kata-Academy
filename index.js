@@ -20,7 +20,6 @@ async function inputKey(e) {
         boxElement.innerHTML = '';
         return;
     }
-
     const dataGet = await fetch(`https://api.github.com/search/repositories?q=${inputValue}`);
     const dataResult = await dataGet.json();
 
@@ -47,9 +46,9 @@ boxElement.addEventListener('click', (e) => {
                 const { name, stargazers_count, owner } = dataResult.items[index];
                 clickElement.insertAdjacentHTML("afterbegin", `
                     <div class="person">
-                    <p>Имя: ${name}</p>
-                    <p>Звезды: ${stargazers_count}</p>
-                    <p>Автор: ${owner.login}</p>
+                    <p>Name: ${name} </p>
+                    <p>Stars: ${stargazers_count} </p>
+                    <p>Owner: ${owner.login} </p>
                     <div>
                     <button class="button-close">❌</button>
                     </div>
@@ -70,4 +69,4 @@ document.onclick = (e) => {
     }
 };
 
-inputSearchElement.onkeyup = debounce(inputKey, 300);
+inputSearchElement.onkeyup = debounce(inputKey, 400);
